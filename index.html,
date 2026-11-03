@@ -8,14 +8,7 @@
 <meta name="theme-color" content="#08152b">
 <title>NexusBlatter 3D - Anime Battle Royale</title>
 <style>
-:root{--cyan:#27e8ff;--gold:#ffd52e;--panel:#071426eF;--line:#67dcff88}
-<canvas id="world"></canvas><div id="shade"></div>
-<div id="topbar">
- <div class="profile"><div class="avatar" id="profileFace">⚡</div><div><div class="name">NexusBlatter</div><div class="small">Nv. 01 · Explorador</div></div></div>
- <div class="currency"><span>🪙 <b>0</b></span><span>💎 <b>0</b></span><span>➕</span></div>
- <div class="topicons"><span>♟</span><span>✉</span><span>⚙</span><span>📶</span></div
-<div id="rightpanel"><h3>✦ ESCOLHA SEU PERSONAGEM</h3><div id="cards"></div></div>
-<div id="bottomnav">
+
  <button class="navBtn" data-panel="COFRE">▣ COFRE</button>
  <button class="navBtn" data-panel="ARMAS">⚔ ARMAS</button>
  <button class="navBtn active" data-panel="PERSONAGENS">♟ PERSONAGEM</button>
