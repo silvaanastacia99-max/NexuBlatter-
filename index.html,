@@ -1,5 +1,4 @@
-https://chatgpt.com/library/share/libfile_6be4c1111b4c8191b320c37dfd1a562a?account_id=personalist.toggle('selected',n===i));}
-const cards=document.querySelector('#cards');
+
 roster.forEach((c,i)=>{const b=document.createElement('button');b.className='charCard'+(i===0?' selected':'');b.innerHTML=`<div class="portrait">${c.face}</div><span>${c.name}</span>`;b.onclick=()=>{if(game)return;setCharacter(i);toast(c.name+' selecionado · '+c.power)};cards.appendChild(b)});
 function toast(t){const el=document.querySelector('#toast');el.textContent=t;el.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.style.display='none',1500)}
 function modal(title,body){document.querySelector('#modalTitle').textContent=title;document.querySelector('#modalBody').innerHTML=body;document.querySelector('#modal').style.display='flex'}
