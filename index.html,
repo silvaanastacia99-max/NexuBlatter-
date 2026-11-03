@@ -13,17 +13,7 @@
 <div id="topbar">
  <div class="profile"><div class="avatar" id="profileFace">⚡</div><div><div class="name">NexusBlatter</div><div class="small">Nv. 01 · Explorador</div></div></div>
  <div class="currency"><span>🪙 <b>0</b></span><span>💎 <b>0</b></span><span>➕</span></div>
- <div class="topicons"><span>♟</span><span>✉</span><span>⚙</span><span>📶</span></div>
-</div>
-<div id="brand"><h1>NEXUS<span>BLATTER</span></h1><p>ANIME BATTLE ROYALE · 3D</p></div>
-<div id="leftmenu">
- <button class="menuBtn active" data-panel="LOJA">🛒 LOJA</button>
- <button class="menuBtn" data-panel="PERSONAGENS">👕 PERSONAGENS</button>
- <button class="menuBtn" data-panel="ARMAS">⚔ ARMAS</button>
- <button class="menuBtn" data-panel="MOCHILA">🎒 MOCHILA</button>
- <button class="menuBtn" data-panel="MISSÕES">☑ MISSÕES</button>
- <button class="menuBtn" data-panel="EVENTOS">🏆 EVENTOS</button>
-</div>
+ <div class="topicons"><span>♟</span><span>✉</span><span>⚙</span><span>📶</span></div
 <div id="rightpanel"><h3>✦ ESCOLHA SEU PERSONAGEM</h3><div id="cards"></div></div>
 <div id="bottomnav">
  <button class="navBtn" data-panel="COFRE">▣ COFRE</button>
