@@ -17,10 +17,7 @@
  <button id="start">COMEÇAR ▶</button>
 </div>
 <div id="gamehud">
- <div class="hudbox">NEXUSBLATTER<br><span id="score">Pontos: 0</span><br><span id="enemyCount">Adversários: 5</span><br><span id="ammoText">ENERGIA: 12 / 60</span></div>
- <div class="hudbox">VIDA<div id="healthbar"><div id="healthfill"></div></div><span id="healthtext">100 / 100</span></div>
- <canvas id="minimap" width="150" height="150" aria-label="Minimapa da arena"></canvas>
-</div>
+ <div class="hudbox">NEXUSBLATTER<br><span id="score">Pontos: 0
 <div id="gamecontrols">
  <div id="stick"><div id="knob"></div></div>
  <div id="fightbuttons"><button class="fight" id="jump">PULAR</button><button class="fight" id="energy">PODER</button><button class="fight" id="reload">RECARREGAR</button><button class="fight" id="attack">✦<br>ATIRAR</button></div>
