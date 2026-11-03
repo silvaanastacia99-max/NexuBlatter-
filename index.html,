@@ -9,67 +9,6 @@
 <title>NexusBlatter 3D - Anime Battle Royale</title>
 <style>
 :root{--cyan:#27e8ff;--gold:#ffd52e;--panel:#071426eF;--line:#67dcff88}
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#08152b;color:#fff;font-family:Arial,sans-serif;touch-action:none}
-#world{position:fixed;inset:0;width:100%;height:100%;display:block}
-#shade{position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,#03101dbb,transparent 35%,transparent 70%,#03101d88),linear-gradient(0deg,#03101d88,transparent 30%,#03101d44)}
-#topbar{position:fixed;top:10px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;z-index:5}
-.profile,.currency,.topicons{background:#061326d9;border:1px solid #ffffff30;border-radius:14px;padding:8px 11px;box-shadow:0 5px 20px #0005}
-.profile{display:flex;align-items:center;gap:9px;min-width:145px}
-.avatar{width:43px;height:43px;border-radius:12px;background:linear-gradient(135deg,#7146ce,#20cfff);display:grid;place-items:center;font-size:25px;border:2px solid #ffe36a}
-.small{font-size:11px;color:#b9d5e7}.name{font-weight:900;font-size:14px}
-.currency{display:flex;gap:15px;font-weight:bold;font-size:14px}
-.topicons{display:flex;gap:14px;font-size:20px}
-#brand{position:fixed;top:82px;left:20px;z-index:4;text-shadow:0 4px 5px #000}
-#brand h1{margin:0;font-size:clamp(28px,5vw,55px);font-weight:1000;letter-spacing:-2px;font-style:italic;transform:skew(-7deg)}
-#brand h1 span{color:var(--cyan)}
-#brand p{margin:0 0 0 18px;font-size:13px;letter-spacing:5px;font-weight:bold}
-#leftmenu{position:fixed;left:12px;top:37%;z-index:6;display:flex;flex-direction:column;gap:7px;width:158px}
-.menuBtn{border:1px solid #ffffff35;background:#071629db;color:#fff;border-radius:8px;padding:11px 10px;text-align:left;font-size:14px;font-weight:900;box-shadow:0 4px 12px #0005}
-.menuBtn.active,.menuBtn:active{background:linear-gradient(90deg,#ffcb20,#e78d00);color:#17202a;border-color:#fff2a4}
-#rightpanel{position:fixed;right:12px;top:22%;width:min(265px,34vw);z-index:6;background:#061326df;border:1px solid #ffffff55;border-radius:13px;padding:10px;box-shadow:0 8px 25px #0007}
-#rightpanel h3{margin:0 0 9px;font-size:14px;color:var(--gold);text-transform:uppercase}
-#cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.charCard{min-width:0;border:2px solid #71859a;background:#14263c;border-radius:8px;padding:4px;color:white;font-size:11px;font-weight:bold;text-align:center}
-.charCard.selected{border:3px solid var(--gold);box-shadow:0 0 12px #ffdc39}
-.portrait{height:62px;border-radius:5px;display:grid;place-items:center;font-size:34px;background:linear-gradient(145deg,#4566a8,#111c35)}
-.charCard span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
-#bottomnav{position:fixed;bottom:12px;left:12px;right:12px;z-index:7;display:flex;align-items:center;gap:5px}
-.navBtn{flex:1;background:#071426e8;border:1px solid #ffffff38;border-radius:8px;color:white;padding:12px 4px;font-weight:bold;font-size:clamp(10px,1.5vw,14px)}
-.navBtn.active{color:var(--gold);border-bottom:4px solid var(--gold)}
-#start{background:linear-gradient(110deg,#ffe84b,#ff9f00);color:#191300;font-size:clamp(17px,2.3vw,24px);font-weight:1000;border:0;border-radius:10px;padding:13px 23px;box-shadow:0 0 20px #ffb00088;min-width:145px}
-#modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:16px;background:#020914b8}
-#dialog{width:min(440px,95vw);max-height:82vh;overflow:auto;background:linear-gradient(145deg,#123653,#081321);border:2px solid #38dfff;border-radius:18px;padding:22px;text-align:center;box-shadow:0 0 35px #00bfff55}
-#dialog h2{margin:0 0 10px;color:var(--cyan);font-size:27px}
-#dialog p{line-height:1.45;color:#e2edf6}
-.action{border:0;border-radius:10px;padding:13px 20px;background:linear-gradient(90deg,#25dfff,#32ffad);font-weight:900;color:#071625;font-size:16px;margin:5px}
-.secondary{background:#203b55;color:#fff;border:1px solid #75cfff}
-#gamehud{display:none;position:fixed;top:12px;left:12px;right:12px;z-index:8;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
-#minimap{width:clamp(88px,18vw,150px);height:clamp(88px,18vw,150px);border:2px solid #d8f6ff;border-radius:12px;background:#071426df;box-shadow:0 4px 18px #0008} 
-#ammoText{display:inline-block;margin-top:4px;color:#ffe36a;font-size:13px}
-.hudbox{background:#071426d9;padding:9px 12px;border:1px solid #ffffff55;border-radius:10px;font-weight:bold}
-#healthbar{width:130px;height:10px;background:#555;border-radius:10px;overflow:hidden;margin-top:5px}
-#healthfill{height:100%;width:100%;background:#2cff72}
-#gamecontrols{display:none;position:fixed;bottom:18px;left:15px;right:15px;z-index:9;justify-content:space-between;align-items:end;pointer-events:none}
-#stick{width:120px;height:120px;border-radius:50%;background:#ffffff24;border:2px solid #ffffff80;position:relative;pointer-events:auto}
-#knob{position:absolute;width:48px;height:48px;left:34px;top:34px;border-radius:50%;background:#ffffffb8;border:2px solid white}
-#fightbuttons{display:flex;gap:10px;align-items:end;pointer-events:auto}
-.fight{width:67px;height:67px;border-radius:50%;border:2px solid #ffffffaa;background:#173451eF;color:white;font-weight:bold;font-size:13px}
-#attack{width:78px;height:78px;background:#d84938}
-#reload{background:#9b7621;font-size:10px}
-#cameraHint{position:fixed;right:12px;bottom:110px;z-index:8;font-size:10px;color:white;display:none;text-shadow:0 1px 3px #000}
-#toast{position:fixed;top:45%;left:50%;transform:translate(-50%,-50%);z-index:30;background:#061426ed;border:1px solid var(--cyan);border-radius:10px;padding:12px 18px;display:none;text-align:center}
-@media(max-width:650px){
- #topbar{top:6px;left:6px;right:6px}.profile{min-width:0;padding:6px}.avatar{width:35px;height:35px}.currency{gap:7px;padding:7px;font-size:12px}.topicons{gap:8px;padding:8px;font-size:17px}
- #brand{top:72px;left:12px}#brand h1{font-size:29px}#brand p{font-size:9px;letter-spacing:3px}
- #leftmenu{top:auto;bottom:82px;left:7px;width:116px;gap:4px}.menuBtn{padding:8px 6px;font-size:11px}
- #rightpanel{top:auto;right:7px;bottom:82px;width:calc(100% - 136px);max-width:235px;padding:7px}
- #rightpanel h3{font-size:11px}.portrait{height:43px;font-size:25px}.charCard{font-size:9px;padding:3px}
- #bottomnav{left:5px;right:5px;bottom:5px;gap:3px}.navBtn{padding:10px 2px;font-size:9px}#start{min-width:85px;padding:11px 8px;font-size:14px}
-}
-</style>
-</head>
-<body>
 <canvas id="world"></canvas><div id="shade"></div>
 <div id="topbar">
  <div class="profile"><div class="avatar" id="profileFace">⚡</div><div><div class="name">NexusBlatter</div><div class="small">Nv. 01 · Explorador</div></div></div>
