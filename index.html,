@@ -13,9 +13,7 @@
  <button class="navBtn" data-panel="ARMAS">⚔ ARMAS</button>
  <button class="navBtn active" data-panel="PERSONAGENS">♟ PERSONAGEM</button>
  <button class="navBtn" data-panel="PET">🐾 PET</button>
- <button class="navBtn" data-panel="COLEÇÃO">▧ COLEÇÃO</button>
- <button id="start">COMEÇAR ▶</button>
-</div>
+ <button class="navBtn" data-panel="COLEÇÃO">▧ COLEÇÃO</button
 
 <div id="cameraHint">Arraste o lado direito para girar a câmera</div>
 <div id="modal"><div id="dialog"><h2 id="modalTitle">NEXUSBLATTER</h2><div id="modalBody"></div><button class="action" id="modalClose">VOLTAR</button></div></div>
