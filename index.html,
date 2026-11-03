@@ -8,7 +8,6 @@
 <meta name="theme-color" content="#08152b">
 <title>NexusBlatter 3D - Anime Battle Royale</title>
 <scrit>
-
 <div id="cameraHint">Arraste o lado direito para girar a câmera</div>
 <div id="modal"><div id="dialog"><h2 id="modalTitle">NEXUSBLATTER</h2><div id="modalBody"></div><button class="action" id="modalClose">VOLTAR</button></div></div>
 <div id="toast"></div>
