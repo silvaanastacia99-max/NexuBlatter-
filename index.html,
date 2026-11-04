@@ -123,11 +123,7 @@ const mat=(c,r=.78,extra={})=>
 
 const ground=new THREE.Mesh(
  new THREE.PlaneGeometry(190,190),mat(0x54864b)
-);
-ground.rotation.x=-Math.PI/2;
-ground.receiveShadow=true;
-scene.add(ground);
-
+a
 const path=new THREE.Mesh(
  new THREE.PlaneGeometry(10,180),mat(0xb6a17a)
 );
@@ -694,8 +690,7 @@ function animate(){
 
  if(started&&!ended&&player){
 
-  let x=move.x+(keys.d?1:0)-(keys.a?1:0);
-  let z=move.y+(keys.s?1:0)-(keys.w?1:0);
+  let x=move.x+(keys.d?1:0)-(keys.a?1:0)
 
   const v=new THREE.Vector3(x,0,z);
   if(v.length()>1)v.normalize();
