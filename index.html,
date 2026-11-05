@@ -7,52 +7,6 @@
 <meta name="theme-color" content="#08152b">
 <title>NexusBlatter 3D - Anime Battle Royale</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101c25;color:white;font-family:Arial,sans-serif;touch-action:none}
-canvas{display:block}
-#hud{position:fixed;top:9px;left:9px;right:9px;z-index:5;display:none;pointer-events:none}
-#topo{display:flex;justify-content:space-between;gap:5px;align-items:flex-start}
-.painel{background:#07131ddd;border:1px solid #5ce5ff88;border-radius:10px;padding:7px 9px;font-size:12px;text-shadow:0 1px 2px black}
-#barraFundo{width:100px;height:10px;background:#472b32;border-radius:20px;overflow:hidden;margin-top:5px}
-#barraVida{height:100%;width:100%;background:#35e46a}
-#municao{color:#ffe66d;font-weight:bold}
-#ajuda{display:inline-block;margin-top:6px}
-#minimapa{position:fixed;right:10px;top:105px;width:100px;height:100px;border:2px solid #7deaff;border-radius:9px;background:#173b2cdd;z-index:5;display:none;pointer-events:none}
-#controles{position:fixed;inset:0;z-index:6;display:none;pointer-events:none}
-#joystick{position:absolute;left:18px;bottom:20px;width:122px;height:122px;border-radius:50%;background:#ffffff20;border:2px solid #ffffff66;pointer-events:auto;touch-action:none}
-#pino{position:absolute;width:48px;height:48px;border-radius:50%;background:#65dfffbb;border:2px solid white;left:35px;top:35px}
-.botoes{position:absolute;right:13px;bottom:19px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:auto}
-.linhaBotoes{display:flex;gap:8px}
-.btnJogo{width:61px;height:61px;border-radius:50%;border:2px solid #ffffffaa;background:#122e43ef;color:white;font-weight:bold;font-size:11px;touch-action:none}
-#btnAtaque{width:72px;height:72px;background:#a52c45ee}
-#btnEspecial{background:#6335a8ee}
-#btnPulo{background:#237b9cee}
-#mensagem{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:#06101bdc;padding:14px}
-#caixa{width:min(470px,100%);max-height:94vh;overflow:auto;text-align:center;background:linear-gradient(145deg,#18374b,#101725);border:2px solid #48dfff;border-radius:18px;padding:17px;box-shadow:0 0 35px #00cfff44}
-h1{font-size:25px;margin:0 0 6px;color:#65eaff;text-shadow:0 0 12px #00bfff}
-#caixa p{color:#dceaf2;line-height:1.4;font-size:13px;margin:7px}
-#listaHerois{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:12px 0}
-.heroi{padding:11px 5px;border:2px solid #456477;border-radius:10px;background:#0c1e2c;color:white;font-weight:bold;font-size:12px}
-.heroi.selecionado{border-color:#65eaff;background:#14506a;box-shadow:0 0 12px #35dfff55}
-#jogar{width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,#00bde8,#236be8);color:white;font-weight:bold;font-size:17px}
-#dica{font-size:11px!important;color:#a9c8d8!important}
-#mirinha{position:fixed;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);display:none;pointer-events:none;z-index:4}
-#mirinha:before,#mirinha:after{content:"";position:absolute;background:#fff;box-shadow:0 0 4px black}
-#mirinha:before{width:2px;height:20px;left:9px}
-#mirinha:after{height:2px;width:20px;top:9px}
-@media(max-height:520px){
-#caixa{max-height:96vh;padding:10px}
-#listaHerois{grid-template-columns:repeat(5,1fr)}
-#joystick{width:92px;height:92px;bottom:9px;left:9px}
-#pino{width:38px;height:38px;left:25px;top:25px}
-.btnJogo{width:51px;height:51px}
-.botoes{bottom:8px;right:8px}
-#btnAtaque{width:60px;height:60px}
-}
-</style>
-</head>
-<body>
-
 <div id="hud">
  <div id="topo">
   <div class="painel"><b>❤️ VIDA</b><div id="barraFundo"><div id="barraVida"></div></div></div>
