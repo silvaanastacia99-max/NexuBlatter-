@@ -1736,15 +1736,6 @@ function endGame(win){
  "Sua aventura terminou. Tente novamente!"}</p>
  <p>Pontuação: <b>${score}</b></p>
  <button id="jogar">JOGAR NOVAMENTE</button>
- `;
-
- document.getElementById("jogar").onclick=restart;
-
- document.getElementById("controles").style.display="none";
- document.getElementById("hud").style.display="none";
- document.getElementById("minimapa").style.display="none";
- document.getElementById("mirinha").style.display="none";
-}
 
 /* INICIAR E REINICIAR */
 
