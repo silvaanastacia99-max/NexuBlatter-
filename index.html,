@@ -15,11 +15,6 @@
   <div class="painel" id="municao">12 / 60</div>
  </div>
  <div class="painel" id="ajuda">Derrote os adversários!</div>
-</div>
-
-<canvas id="minimapa" width="100" height="100"></canvas>
-<div id="mirinha"></div>
-
 <div id="controles">
  <div id="joystick"><div id="pino"></div></div>
  <div class="botoes">
