@@ -544,4 +544,41 @@ function animar(){
     e.obj.position.x+=(dx/dist)*e.vel*dt;
     e.obj.position.z+=(dz/dist)*e.vel*dt;
     e.obj.rotation.y=Math.atan2(dx,dz);
-    const andan
+    const andando=Math.sin(tempoAnimacao*8+e.anim)*.4;
+    e.obj.userData.pernas.forEach((p,i)=>p.rotation.x=i===0?andando:-andando);
+    e.obj.userData.bracos.forEach((b,i)=>b.rotation.x=i===0?-andando:andando);
+   }else if(performance.now()-e.ataque>1100){
+    e.ataque=performance.now();
+    vida=Math.max(0,vida-7);
+    atualizarHUD();
+    if(vida<=0)mensagemFim(false);
+   }
+  });
+
+  const alvo=new THREE.Vector3(
+   jogador.position.x-Math.sin(cameraAngulo)*(mira?6:8),
+   jogador.position.y+(mira?3.8:5),
+   jogador.position.z-Math.cos(cameraAn  camera.position.lerp(alvo,1-Math.exp(-5*dt));
+  camera.lookAt(
+   jogador.position.x,
+   jogador.position.y+(mira?1.7:1.4),
+   jogador.position.z
+  );
+  atualizarMinimapa();
+ }else if(!jogador){
+  camera.position.set(0,12,18);
+  camera.lookAt(0,0,0);
+ }
+ renderer.render(cena,camera);
+}
+animar();
+
+window.addEventListener("resize",()=>{
+ camera.aspect=innerWidth/innerHeight;
+ camera.updateProjectionMatrix();
+ renderer.setSize(innerWidth,innerHeight);
+});
+</script>
+</body>
+</html>
+
