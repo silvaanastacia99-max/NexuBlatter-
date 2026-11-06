@@ -505,46 +505,7 @@ function animar(){
   const v=new THREE.Vector3(x,0,z);
   if(v.length()>1)v.normalize();
 
-  const frente=new THREE.Vector3(Math.sin(cameraAngulo),0,Math.cos(cameraAngulo));
-  const lado=new THREE.Vector3(Math.cos(cameraAngulo),0,-Math.sin(cameraAngulo));
-  const movimento=frente.multiplyScalar(v.y).add(lado.multiplyScalar(v.x));
-
-  if(movimento.length()>.01){
-   jogador.position.addScaledVector(movimento,6.5*dt);
-   jogador.rotation.y=Math.atan2(movimento.x,movimento.z);
-  }
-
-  // Animação dos braços e pernas
-  const andando=movimento.length()>.01;
-  jogador.userData.pernas.forEach((p,i)=>{
-   p.rotation.x=andando?Math.sin(tempoAnimacao*9+i*Math.PI)*.55:0;
-  });
-  jogador.userData.bracos.forEach((b,i)=>{
-   b.rotation.x=andando?Math.sin(tempoAnimacao*9+i*Math.PI)*.35:0;
-  });
-
-  jogador.position.x=THREE.MathUtils.clamp(jogador.position.x,-78,78);
-  jogador.position.z=THREE.MathUtils.clamp(jogador.position.z,-78,78);
-
-  if(pulando){
-   jogador.position.y+=velocidadePulo*dt;
-   velocidadePulo-=18*dt;
-   if(jogador.position.y<=0){
-    jogador.position.y=0;pulando=false;
-   }
-  }
-
-  inimigos.forEach(e=>{
-   if(!e.vivo)return;
-   const dx=jogador.position.x-e.obj.position.x;
-   const dz=jogador.position.z-e.obj.position.z;
-   const dist=Math.hypot(dx,dz);
-
-   if(dist>1.65){
-    e.obj.position.x+=(dx/dist)*e.vel*dt;
-    e.obj.position.z+=(dz/dist)*e.vel*dt;
-    e.obj.rotation.y=Math.atan2(dx,dz);
-    const andan
+  const frente=new THREE.Vector3(Math.sin(cameraAngulo),0,Math
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
