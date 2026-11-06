@@ -1,72 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#101c25">
-<title>NexusBlatter 3D - Anime Battle Royale</title>
-<style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101c25;font-family:Arial,sans-serif;color:white;touch-action:none}
-canvas{display:block;width:100%;height:100%}
-#hud{position:fixed;top:10px;left:10px;right:10px;z-index:5;display:none;pointer-events:none}
-#topo{display:flex;justify-content:space-between;gap:8px;align-items:center}
-.painel{background:#07131ddd;border:1px solid #5ce5ff66;border-radius:10px;padding:8px 11px;font-size:13px;text-shadow:0 1px 2px #000}
-#barraFundo{width:135px;height:12px;background:#472b32;border-radius:20px;overflow:hidden;margin-top:5px}
-#barraVida{height:100%;width:100%;background:#35e46a;transition:width .2s}
-#pontos{font-weight:bold;color:#ffe66d}
-#ajuda{margin-top:7px;display:inline-block}
-#controles{position:fixed;inset:0;z-index:6;display:none;pointer-events:none}
-#joystick{position:absolute;left:22px;bottom:25px;width:125px;height:125px;border-radius:50%;background:#ffffff20;border:2px solid #ffffff66;pointer-events:auto;touch-action:none}
-#pino{position:absolute;width:49px;height:49px;border-radius:50%;background:#65dfffbb;border:2px solid white;left:36px;top:36px}
-.botoes{position:absolute;right:17px;bottom:25px;display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:auto}
-.linhaBotoes{display:flex;gap:9px}
-.btnJogo{width:65px;height:65px;border-radius:50%;border:2px solid #ffffffaa;background:#122e43dd;color:white;font-weight:bold;font-size:12px;touch-action:none}
-.btnJogo:active{background:#1685a8}
-#btnAtaque{width:76px;height:76px;background:#a52c45ee}
-#btnEspecial{background:#6335a8ee}
-#btnPulo{background:#237b9cee}
-#mensagem{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:#06101bdc;padding:20px}
-#caixa{width:min(440px,100%);max-height:90vh;overflow:auto;text-align:center;background:linear-gradient(145deg,#18374b,#101725);border:2px solid #48dfff;border-radius:18px;padding:22px;box-shadow:0 0 35px #00cfff44}
-h1{font-size:27px;margin:0 0 8px;color:#65eaff;text-shadow:0 0 12px #00bfff}
-#caixa p{color:#dceaf2;line-height:1.5;font-size:14px}
-.herois{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:16px 0}
-.heroi{padding:12px 5px;border:2px solid #456477;border-radius:10px;background:#0c1e2c;color:white;font-weight:bold}
-.heroi.selecionado{border-color:#65eaff;background:#14506a}
-#jogar{width:100%;padding:15px;border:0;border-radius:12px;background:linear-gradient(90deg,#00bde8,#236be8);color:white;font-weight:bold;font-size:17px}
-#minimapa{position:fixed;right:12px;top:90px;width:100px;height:100px;border:2px solid #7deaff;border-radius:9px;background:#173b2cdd;z-index:5;display:none;pointer-events:none}
-@media(max-height:500px){#joystick{width:95px;height:95px;bottom:12px;left:12px}#pino{width:39px;height:39px;left:26px;top:26px}.btnJogo{width:54px;height:54px}.botoes{bottom:10px;right:10px}#btnAtaque{width:62px;height:62px}}
-</style>
-</head>
-<body>
-
-<div id="hud">
-  <div id="topo">
-    <div class="painel">
-      <div>❤️ VIDA</div>
-      <div id="barraFundo"><div id="barraVida"></div></div>
-    </div>
-    <div class="painel" id="pontos">Pontos: 0</div>
-    <div class="painel" id="inimigosTexto">Inimigos: 8</div>
-  </div>
-  <div class="painel" id="ajuda">Derrote todos os adversários!</div>
-</div>
-
-<canvas id="minimapa" width="100" height="100"></canvas>
-
-<div id="controles">
-  <div id="joystick"><div id="pino"></div></div>
-  <div class="botoes">
-    <button class="btnJogo" id="btnPulo">PULAR</button>
-    <div class="linhaBotoes">
-      <button class="btnJogo" id="btnEspecial">PODER</button>
-      <button class="btnJogo" id="btnAtaque">ATACAR</button>
-    </div>
-  </div>
-</div>
-
-<div id="mensagem">
-  <div id="caixa">
+<meta charset="UTF-8"
     <h1>NEXUSBLATTER 3D</h1>
     <p>ANIME BATTLE ROYALE</p>
     <p>Escolha seu personagem:</p>
@@ -480,16 +415,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#08152b;col
 #cameraHint{position:fixed;right:12px;bottom:110px;z-index:8;font-size:10px;color:white;display:none;text-shadow:0 1px 3px #000}
 #toast{position:fixed;top:45%;left:50%;transform:translate(-50%,-50%);z-index:30;background:#061426ed;border:1px solid var(--cyan);border-radius:10px;padding:12px 18px;display:none;text-align:center}
 @media(max-width:650px){
- #topbar{top:6px;left:6px;right:6px}.profile{min-width:0;padding:6px}.avatar{width:35px;height:35px}.currency{gap:7px;padding:7px;font-size:12px}.topicons{gap:8px;padding:8px;font-size:17px}
- #brand{top:72px;left:12px}#brand h1{font-size:29px}#brand p{font-size:9px;letter-spacing:3px}
- #leftmenu{top:auto;bottom:82px;left:7px;width:116px;gap:4px}.menuBtn{padding:8px 6px;font-size:11px}
- #rightpanel{top:auto;right:7px;bottom:82px;width:calc(100% - 136px);max-width:235px;padding:7px}
- #rightpanel h3{font-size:11px}.portrait{height:43px;font-size:25px}.charCard{font-size:9px;padding:3px}
- #bottomnav{left:5px;right:5px;bottom:5px;gap:3px}.navBtn{padding:10px 2px;font-size:9px}#start{min-width:85px;padding:11px 8px;font-size:14px}
-}
-</style>
-</head>
-<body>
+ #topbar{top:6px;left:6px;right:6px}.profile{min-width:0;padding:6px}.avatar{width:35px;height:35px}.currency{gap:7px;padding:7px;font-size:12px}.topicons{gap:8px;padding:8px;font-size:1
 <canvas id="world"></canvas><div id="shade"></div>
 <div id="topbar">
  <div class="profile"><div class="avatar" id="profileFace">⚡</div><div><div class="name">NexusBlatter</div><div class="small">Nv. 01 · Explorador</div></div></div>
@@ -665,4 +591,4 @@ function panel(name){const content={
  'PERSONAGENS':'<p>Escolha um dos seis heróis originais no painel à direita.</p>',
  'ARMAS':'<p>⚔ Lâmina de luz<br>✦ Lançador de energia<br>🛡 Escudo de plasma</p><p>Equipamentos fictícios para o modo aventura.</p>',
  'MOCHILA':'<p>🎒 Mochila vazia<br>Itens coletados aparecerão aqui.</p>',
- 'MISSÕES':'<p>★ Explore o mapa<br>★ Complete o treino<br>★ Encontre os adversári
+ 'MISSÕES':'<p>★ Explore o mapa<br>★ 
