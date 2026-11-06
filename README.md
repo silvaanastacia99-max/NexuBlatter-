@@ -296,65 +296,7 @@ function animar(){
  const dt=Math.min(relogio.getDelta(),.04);
  if(iniciou&&!acabou&&jogador){
   let x=deslocamento.x+(teclas.d?1:0)-(teclas.a?1:0);
-  let z=deslocamento.y+(teclas.s?1:0)-(teclas.w?1:0);
-  const v=new THREE.Vector3(x,0,z);
-  if(v.length()>1)v.normalize();
-  const frente=new THREE.Vector3(Math.sin(cameraAngulo),0,Math.cos(cameraAngulo));
-  const lado=new THREE.Vector3(Math.cos(cameraAngulo),0,-Math.sin(cameraAngulo));
-  const movimento=frente.multiplyScalar(v.y).add(lado.multiplyScalar(v.x));
-  if(movimento.length()>.01){
-   jogador.position.addScaledVector(movimento,7*dt);
-   jogador.rotation.y=Math.atan2(movimento.x,movimento.z);
-  }
-  jogador.position.x=THREE.MathUtils.clamp(jogador.position.x,-78,78);
-  jogador.position.z=THREE.MathUtils.clamp(jogador.position.z,-78,78);
-
-  if(pulando){
-   jogador.position.y+=velocidadePulo*dt;
-   velocidadePulo-=18*dt;
-   if(jogador.position.y<=0){jogador.position.y=0;pulando=false;}
-  }
-
-  inimigos.forEach(e=>{
-   if(!e.vivo)return;
-   const dx=jogador.position.x-e.obj.position.x;
-   const dz=jogador.position.z-e.obj.position.z;
-   const dist=Math.hypot(dx,dz);
-   if(dist>1.65){
-    e.obj.position.x+=(dx/dist)*e.vel*dt;
-    e.obj.position.z+=(dz/dist)*e.vel*dt;
-    e.obj.rotation.y=Math.atan2(dx,dz);
-   }else if(performance.now()-e.ataque>1100){
-    e.ataque=performance.now();
-    vida=Math.max(0,vida-7);
-    atualizarHUD();
-    if(vida<=0)mostrarFim(false);
-   }
-  });
-
-  const alvo=new THREE.Vector3(
-   jogador.position.x-Math.sin(cameraAngulo)*8,
-   jogador.position.y+5,
-   jogador.position.z-Math.cos(cameraAngulo)*8
-  );
-  camera.position.lerp(alvo,1-Math.exp(-5*dt));
-  camera.lookAt(jogador.position.x,jogador.position.y+1.4,jogador.position.z);
-  atualizarMinimapa();
- }else if(!jogador){
-  camera.position.set(0,12,18);camera.lookAt(0,0,0);
- }
- renderer.render(cena,camera);
-}
-animar();
-
-window.addEventListener("resize",()=>{
- camera.aspect=innerWidth/innerHeight;
- camera.updateProjectionMatrix();
- renderer.setSize(innerWidth,innerHeight);
-});
-</script>
-</body>
-</html>
+  let z=deslocamento
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -592,3 +534,8 @@ function panel(name){const content={
  'ARMAS':'<p>⚔ Lâmina de luz<br>✦ Lançador de energia<br>🛡 Escudo de plasma</p><p>Equipamentos fictícios para o modo aventura.</p>',
  'MOCHILA':'<p>🎒 Mochila vazia<br>Itens coletados aparecerão aqui.</p>',
  'MISSÕES':'<p>★ Explore o mapa<br>★ 
+renderer.setSize(innerWidth,innerHeight);
+});
+</script>
+</body>
+</html>
