@@ -52,7 +52,203 @@ h1{font-size:27px;color:#65eaff;margin:0 0 8px}
 <body>
 <div id="game"></div>
 
-<div id="hud">
+<div id
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#071426">
+<title>NexusBlatter 3D - Anime Battle Royale</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:radial-gradient(circle at top,#164d75,#06101e 65%);
+ color:white;
+ min-height:100vh;
+ text-align:center;
+}
+.screen{
+ display:none;
+ min-height:100vh;
+ padding:25px 15px;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+}
+.screen.active{display:flex}
+.logo{
+ font-size:clamp(35px,9vw,65px);
+ font-weight:1000;
+ color:#21e7ff;
+ text-shadow:0 0 18px #00bfff;
+}
+.subtitle{
+ color:#ffd83d;
+ font-weight:bold;
+ letter-spacing:4px;
+ margin:15px 0 35px;
+}
+button{
+ border:0;
+ border-radius:12px;
+ padding:16px 25px;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
+ color:#061426;
+ background:linear-gradient(90deg,#19e5ff,#ffd52d);
+ box-shadow:0 0 15px #00cfff66;
+ margin:10px;
+}
+button:active{transform:scale(.96)}
+h2{color:#25eaff}
+.characters{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(130px,1fr));
+ gap:13px;
+ width:100%;
+ max-width:500px;
+}
+.character{
+ background:#102941;
+ border:2px solid #286080;
+ border-radius:15px;
+ padding:12px;
+ cursor:pointer;
+}
+.character.selected{
+ border:3px solid #ffe12e;
+ background:#164b63;
+ box-shadow:0 0 18px #00dfff;
+}
+.character .portrait{
+ height:115px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:75px;
+}
+.character strong{display:block;margin:8px}
+.character small{color:#a9d9ee}
+#chosen{color:#ffe12e;font-size:19px}
+.note{color:#a9c9dd;font-size:13px}
+</style>
+</head>
+
+<body>
+
+<!-- TELA INICIAL -->
+<section id="inicio" class="screen active">
+ <div class="logo">NEXUSBLATTER 3D</div>
+ <div class="subtitle">ANIME BATTLE ROYALE</div>
+ <p>Prepare-se para entrar no universo dos animes!</p>
+ <button onclick="abrirSelecao()">ENTRAR NO JOGO</button>
+</section>
+
+<!-- ESCOLHA DE PERSONAGEM -->
+<section id="selecao" class="screen">
+ <h1>ESCOLHA SEU PERSONAGEM</h1>
+ <p>Selecione seu guerreiro favorito</p>
+
+ <div class="characters">
+
+  <div class="character selected" onclick="selecionar(this,'Naruto')">
+   <div class="portrait">🍥</div>
+   <strong>NARUTO</strong>
+   <small>Ninja lendário</small>
+  </div>
+
+  <div class="character" onclick="selecionar(this,'Luffy')">
+   <div class="portrait">🏴‍☠️</div>
+   <strong>LUFFY</strong>
+   <small>Rei dos piratas</small>
+  </div>
+
+  <div class="character" onclick="selecionar(this,'Zoro')">
+   <div class="portrait">⚔️</div>
+   <strong>ZORO</strong>
+   <small>Espadachim</small>
+  </div>
+
+  <div class="character" onclick="selecionar(this,'Nami')">
+   <div class="portrait">🌩️</div>
+   <strong>NAMI</strong>
+   <small>Navegadora</small>
+  </div>
+
+  <div class="character" onclick="selecionar(this,'Sasuke')">
+   <div class="portrait">⚡</div>
+   <strong>SASUKE</strong>
+   <small>Ninja poderoso</small>
+  </div>
+
+  <div class="character" onclick="selecionar(this,'Guerreiro Nexus')">
+   <div class="portrait">🔥</div>
+   <strong>GUERREIRO NEXUS</strong>
+   <small>Guerreiro original</small>
+  </div>
+
+ </div>
+
+ <p>Personagem escolhido: <span id="chosen">Naruto</span></p>
+
+ <button onclick="confirmar()">CONFIRMAR PERSONAGEM</button>
+ <button onclick="voltar()">VOLTAR</button>
+</section>
+
+<!-- PERSONAGEM CONFIRMADO -->
+<section id="confirmado" class="screen">
+ <h1>PERSONAGEM CONFIRMADO!</h1>
+ <div class="logo" style="font-size:35px" id="nomeFinal">NARUTO</div>
+ <p>Seu guerreiro está preparado!</p>
+ <button onclick="jogar()">JOGAR</button>
+ <button onclick="abrirSelecao()">TROCAR PERSONAGEM</button>
+</section>
+
+<script>
+let personagem="Naruto";
+
+function mostrar(id){
+ document.querySelectorAll(".screen").forEach(t=>{
+  t.classList.remove("active");
+ });
+ document.getElementById(id).classList.add("active");
+}
+
+function abrirSelecao(){
+ mostrar("selecao");
+}
+
+function selecionar(elemento,nome){
+ personagem=nome;
+ document.querySelectorAll(".character").forEach(c=>{
+  c.classList.remove("selected");
+ });
+ elemento.classList.add("selected");
+ document.getElementById("chosen").textContent=nome;
+}
+
+function voltar(){
+ mostrar("inicio");
+}
+
+function confirmar(){
+ document.getElementById("nomeFinal").textContent=personagem;
+ mostrar("confirmado");
+}
+
+function jogar(){
+ alert("Personagem "+personagem+" selecionado! A próxima etapa será conectar esta tela à batalha 3D.");
+}
+</script>
+
+</body>
+</html>
+="hud">
  <div id="topo">
   <div class="painel">❤️ VIDA<div id="barraFundo"><div id="barraVida"></div></div></div>
   <div class="painel" id="pontos">Pontos: 0</div>
