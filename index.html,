@@ -23,6 +23,9 @@
 </div>
 <div id="mensagem"><div id="caixa">
  <h1>NEXUSBLATTER 3D</h1><p><b>ANIME BATTLE ROYALE</b></p>
+ <p id="descricaoHeroi">Herói veloz com energia elétrica.</p>
+ <p id="dica">Modelos 3D originais estilizados, com formas suaves. Para aparência cinematográfica realista, substitua por modelos 3D GLB licenciados.</p>
+<h1>NEXUSBLATTER 3D</h1><p><b>ANIME BATTLE ROYALE</b></p>
  <p>Escolha seu personagem:</p><div id="listaHerois"></div>name:'Astra',hair:0x17224c,cloth:0x2366d9,face:'⚡',power:'Pulso elétrico'},
  {name:'Kaori',hair:0x9a284d,cloth:0xb83f75,face:'🌸',power:'Escudo floral'},
  {name:'Ren',hair:0x171717,cloth:0x303b52,face:'🔥',power:'Chama azul'},
@@ -30,8 +33,6 @@
  {name:'Taro',hair:0xd99b22,cloth:0x9b5422,face:'🌟',power:'Impacto solar'},
  {name:'Yumi',hair:0x7539a9,cloth:0x6338a0,face:'🌙',power:'Onda lunar'}
 ];
- <p id="descricaoHeroi">Herói veloz com energia elétrica.</p>
- <p id="dica">Modelos 3D originais estilizados, com formas suaves. Para aparência cinematográfica realista, substitua por modelos 3D GLB licenciados.</p>
  <button id="jogar">ENTRAR NO JOGO</button>
 </div></div>
 <script type="module">
