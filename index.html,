@@ -15,12 +15,6 @@
 </div><div class="painel" id="ajuda">Derrote os adversários!</div></div>
 <canvas id="minimapa" width="100" height="100"></canvas>
 <div id="controles">
- <div id="joystick"><div id="pino"></div></div>
- <div class="botoes"><button class="btnJogo" id="btnPulo">PULAR</button>
-  <div class="linhaBotoes"><button class="btnJogo" id="btnEspecial">PODER</button><button class="btnJogo" id="btnAtaque">ATIRAR</button></div>
-  <button class="btnJogo" id="btnRecarregar">RECARREGAR</button>
- </div>
-</div>
 <div id="mensagem"><div id="caixa">
  <h1>NEXUSBLATTER 3D</h1><p><b>ANIME BATTLE ROYALE</b></p>
  <p id="descricaoHeroi">Herói veloz com energia elétrica.</p>
@@ -32,7 +26,6 @@
  {name:'Mika',hair:0x56b9df,cloth:0x236c70,face:'❄️',power:'Rajada congelante'},
  {name:'Taro',hair:0xd99b22,cloth:0x9b5422,face:'🌟',power:'Impacto solar'},
  {name:'Yumi',hair:0x7539a9,cloth:0x6338a0,face:'🌙',power:'Onda lunar'}
-];
  <button id="jogar">ENTRAR NO JOGO</button>
 </div></div>
 <script type="module">
