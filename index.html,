@@ -71,20 +71,7 @@ EXUSBLATTER 3D</h1>
 <div id="controles">
  <div id="joystick"><div id="pino"></div></div>
  <div class="botoes">
-  <button class="btn" id="btnPulo">PULAR</button>
-  <div class="linha">
-   <button class="btn" id="btnEspecial">PODER</button>
-   <button class="btn" id="btnAtaque">ATIRAR</button>
-  </div>
- </div>
-</div>
-<div id="mensagem">
- <div id="caixa">
-  <button id="jogar">ENTRAR NO JOGO</button>
- </div>
-</div>
-<script>
-type="module">
+<script>type="module">
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 const canvas=document.createElement("canvas");
 document.body.insertBefore(canvas,document.body.firstChild);
