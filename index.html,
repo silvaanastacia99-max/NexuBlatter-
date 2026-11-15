@@ -69,7 +69,8 @@ EXUSBLATTER 3D</h1>
 </div>
 <div id="controles">
  <div id="joystick"><div id="pino"></div></div>
- <div class="botoes">
+ <div class="botoes"> </div>
+</style>
 <script>type="module">
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 const canvas=document.createElement("canvas");
