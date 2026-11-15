@@ -84,22 +84,6 @@ EXUSBLATTER 3D</h1>
 </div>
 <div id="mensagem">
  <div id="caixa">
-  <h1>NEXUSBLATTER 3D</h1>
-  <p>ANIME BATTLE ROYALE</p>
-  <p>ESCOLHA SEU PERSONAGEM</p>
-  <div id="listaHerois">
-   <button class="heroi selecionado" data-heroi="Naruto">🍥 NARUTO<small>Rasengan</small></button>
-   <button class="heroi" data-heroi="Sasuke">⚡ SASUKE<small>Chidori</small></button>
-   <button class="heroi" data-heroi="Nami">🌊 NAMI<small>Tempestade</small></button>
-   <button class="heroi" data-heroi="Zoro">⚔️ ZORO<small>Corte triplo</small></button>
-   <button class="heroi" data-heroi="Luffy">👒 LUFFY<small>Golpe elástico</small></button>
-   <button class="heroi" data-heroi="Goku">🔥 GOKU<small>Energia</small></button>
-   <button class="heroi" data-heroi="Vegeta">💥 VEGETA<small>Explosão</small></button>
-   <button class="heroi" data-heroi="Tanjiro">☀️ TANJIRO<small>Respiração solar</small></button>
-   <button class="heroi" data-heroi="Nezuko">🌸 NEZUKO<small>Poder demoníaco</small></button>
-   <button class="heroi" data-heroi="Ichigo">🗡️ ICHIGO<small>Getsuga</small></button>
-  </div>
-  <p id="descricao">Escolha seu herói e entre na batalha!</p>
   <button id="jogar">ENTRAR NO JOGO</button>
  </div>
 </div>
