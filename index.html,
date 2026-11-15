@@ -40,7 +40,6 @@ h1{color:#65eaff;font-size:27px;margin:5px}
 #pino{width:37px;height:37px;left:25px;top:25px}
 .btn{width:52px;height:52px}
 #btnAtaque{width:60px;height:60px}
-}
 </style>
   <div class="painel">❤️ VIDA
    <div id="barraFundo"><div id="barraVida"></div></div>
