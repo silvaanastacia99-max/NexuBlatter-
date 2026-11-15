@@ -63,11 +63,10 @@ EXUSBLATTER 3D</h1>
    <button class="heroi" data-heroi="Tanjiro">☀️ TANJIRO<small>Respiração solar</small></button>
    <button class="heroi" data-heroi="Nezuko">🌸 NEZUKO<small>Poder demoníaco</small></button>
    <button class="heroi" data-heroi="Ichigo">🗡️ ICHIGO<small>Getsuga</small></button>
-  </div>
-</style>
 <canvas id="minimapa" width="100" height="100"></canvas>
 <div id="mira"> <svg width="22" height="22"><path d="M11 0V7 M11 15V22 M0 11H7 M15 11H22" stroke="white" stroke-width="2"/></svg></div>
-<div id="aviso"></div>
+<div id="aviso">
+</div>
 <div id="controles">
  <div id="joystick"><div id="pino"></div></div>
  <div class="botoes">
