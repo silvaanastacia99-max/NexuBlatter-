@@ -46,7 +46,7 @@ h1{color:#65eaff;font-size:27px;margin:5px}
   <div class="painel" id="pontos">Pontos: 0</div>
   <div class="painel" id="inimigosTexto">Inimigos: 8</div>
  <div class="painel" id="ajuda" style="display:inline-block;margin-top:7px">Derrote os adversários!</div>
-EXUSBLATTER 3D</h1>
+
   <p>ANIME BATTLE ROYALE</p>
   <p>ESCOLHA SEU PERSONAGEM</p>
   <div id="listaHerois">
