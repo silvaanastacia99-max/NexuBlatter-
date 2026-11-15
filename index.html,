@@ -52,7 +52,6 @@ h1{font-size:25px;margin:0 0 6px;color:#65eaff;text-shadow:0 0 12px #00bfff}#cai
  <p id="dica">Modelos 3D originais estilizados, com formas suaves. Para aparência cinematográfica realista, substitua por modelos 3D GLB licenciados.</p>
  <button id="jogar">ENTRAR NO JOGO</button>
 </div></div>
-
 <script type="module">
 </style>
 </head>
