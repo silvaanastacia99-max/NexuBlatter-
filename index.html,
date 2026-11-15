@@ -44,7 +44,6 @@ h1{color:#65eaff;font-size:27px;margin:5px}
 </style>
 </head>
 <body>
-
 <div id="hud">
  <div id="topo">
   <div class="painel">❤️ VIDA
@@ -55,11 +54,9 @@ h1{color:#65eaff;font-size:27px;margin:5px}
  </div>
  <div class="painel" id="ajuda" style="display:inline-block;margin-top:7px">Derrote os adversários!</div>
 </div>
-
 <canvas id="minimapa" width="100" height="100"></canvas>
 <div id="mira"> <svg width="22" height="22"><path d="M11 0V7 M11 15V22 M0 11H7 M15 11H22" stroke="white" stroke-width="2"/></svg></div>
 <div id="aviso"></div>
-
 <div id="controles">
  <div id="joystick"><div id="pino"></div></div>
  <div class="botoes">
@@ -70,7 +67,6 @@ h1{color:#65eaff;font-size:27px;margin:5px}
   </div>
  </div>
 </div>
-
 <div id="mensagem">
  <div id="caixa">
   <h1>NEXUSBLATTER 3D</h1>
@@ -92,17 +88,13 @@ h1{color:#65eaff;font-size:27px;margin:5px}
   <button id="jogar">ENTRAR NO JOGO</button>
  </div>
 </div>
-
 <script type="module">
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-
 const canvas=document.createElement("canvas");
 document.body.insertBefore(canvas,document.body.firstChild);
-
 const cena=new THREE.Scene();
 cena.background=new THREE.Color(0x91c9e8);
 cena.fog=new THREE.Fog(0x91c9e8,50,125);
-
 const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,250);
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
@@ -110,30 +102,25 @@ renderer.setSize(innerWidth,innerHeight);
 renderer.shadowMap.enabled=true;
 renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 renderer.outputColorSpace=THREE.SRGBColorSpace;
-
 cena.add(new THREE.HemisphereLight(0xdaf3ff,0x52613b,2));
 const sol=new THREE.DirectionalLight(0xffffff,2);
 sol.position.set(-25,45,20);
 sol.castShadow=true;
 sol.shadow.mapSize.set(1024,1024);
 cena.add(sol);
-
 const mat=(cor,extra={})=>new THREE.MeshStandardMaterial({color:cor,roughness:.8,...extra});
 const verde=mat(0x438b43),tronco=mat(0x70452b);
 const folhas=mat(0x207d45),parede=mat(0xd1b68b);
 const telhado=mat(0x87483d);
-
 const chao=new THREE.Mesh(new THREE.PlaneGeometry(180,180),verde);
 chao.rotation.x=-Math.PI/2;
 chao.receiveShadow=true;
 cena.add(chao);
-
 function caixa(w,h,d,m,x,y,z){
  const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);
  o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;
  cena.add(o);return o;
 }
-
 function arvore(x,z){
  const g=new THREE.Group();
  const t=new THREE.Mesh(new THREE.CylinderGeometry(.25,.4,2.2,8),tronco);
@@ -142,7 +129,6 @@ function arvore(x,z){
  f.position.y=3.3;g.add(f);
  g.position.set(x,0,z);cena.add(g);
 }
-
 function casa(x,z){
  caixa(7,3.5,6,parede,x,1.75,z);
  caixa(8,1,7,telhado,x,4,z);
@@ -150,7 +136,6 @@ function casa(x,z){
  caixa(1.2,1.1,.2,mat(0x7bd7ec),x-2,2,z-3.1);
  caixa(1.2,1.1,.2,mat(0x7bd7ec),x+2,2,z-3.1);
 }
-
 for(let i=0;i<65;i++){
  let x=(Math.random()-.5)*145,z=(Math.random()-.5)*145;
  if(Math.abs(x)<13&&Math.abs(z)<13)continue;
@@ -159,7 +144,6 @@ for(let i=0;i<65;i++){
 casa(-23,-18);casa(24,-24);casa(-30,25);
 casa(31,26);casa(5,39);casa(-48,-3);
 caixa(9,.08,150,mat(0xb7a47a),0,.06,0);
-
 const herois={
  Naruto:{roupa:0xf07820,cabelo:0xffd52e,poder:0x20aaff,pele:0xe9b58f},
  Sasuke:{roupa:0x343b58,cabelo:0x171a28,poder:0x7255ff,pele:0xe9b58f},
@@ -172,7 +156,6 @@ const herois={
  Nezuko:{roupa:0x9c4388,cabelo:0x211522,poder:0xff72c4,pele:0xf0c5a9},
  Ichigo:{roupa:0x26252b,cabelo:0xf07826,poder:0xff713c,pele:0xe8b995}
 };
-
 let heroiEscolhido="Naruto";
 let jogador=null,vida=100,pontos=0;
 let iniciou=false,acabou=false;
@@ -184,7 +167,6 @@ let cameraArrastando=false,ultimoX=0;
 let joystickAtivo=false,joystickId=null;
 let deslocamento={x:0,y:0};
 const teclas={};
-
 function criarPersonagem(nome){
  const dados=herois[nome];
  const g=new THREE.Group();
@@ -192,54 +174,44 @@ function criarPersonagem(nome){
  const pele=mat(dados.pele);
  const cabelo=mat(dados.cabelo);
  const poder=mat(dados.poder,{emissive:dados.poder,emissiveIntensity:.12});
-
  function parte(geo,m,x,y,z,sx=1,sy=1,sz=1){
   const o=new THREE.Mesh(geo,m);
   o.position.set(x,y,z);o.scale.set(sx,sy,sz);
   o.castShadow=true;g.add(o);return o;
  }
-
  // Corpo humano articulado
  parte(new THREE.CapsuleGeometry(.39,.8,6,12),roupa,0,1.22,0);
  parte(new THREE.SphereGeometry(.29,18,16),pele,0,2.03,0,1,1.13,.95);
  parte(new THREE.SphereGeometry(.31,16,12),cabelo,0,2.25,-.04,1.12,.75,1.05);
-
  // Cabelo com pontas
  for(let i=0;i<5;i++){
   const ponta=parte(new THREE.ConeGeometry(.13,.48,7),cabelo,
    (i-2)*.12,2.48,-.03);
   ponta.rotation.z=(i-2)*-.3;
  }
-
  // Olhos
  const olho=mat(0x181b24);
  parte(new THREE.SphereGeometry(.035,8,8),olho,-.105,2.05,.275);
  parte(new THREE.SphereGeometry(.035,8,8),olho,.105,2.05,.275);
-
  // Braços e pernas
  for(const lado of [-1,1]){
   const braco=parte(new THREE.CapsuleGeometry(.12,.62,5,8),roupa,
    lado*.48,1.34,0);
   braco.rotation.z=lado*.15;
-
   const perna=parte(new THREE.CapsuleGeometry(.15,.55,5,8),
    mat(0x202b38),lado*.19,.48,0);
   perna.rotation.z=lado*-.03;
-
   parte(new THREE.SphereGeometry(.17,12,10),mat(0x202b38),
    lado*.19,.12,.08,1,.6,1.4);
  }
-
  // Faixa na cabeça
  if(nome==="Naruto"||nome==="Sasuke"||nome==="Tanjiro"){
   parte(new THREE.BoxGeometry(.62,.1,.12),mat(0x9babb9),0,2.14,.25);
  }
-
  // Detalhe nas costas
  if(nome==="Zoro"||nome==="Ichigo"){
   parte(new THREE.BoxGeometry(.13,.95,.13),mat(0x9da8b4),.55,1.35,-.2);
  }
-
  // Aura do personagem
  const aura=new THREE.Mesh(
   new THREE.SphereGeometry(.85,12,10),
@@ -256,7 +228,6 @@ function criarInimigo(x,z){
  const roupa=mat(0x9e3448);
  const pele=mat(0xd4a17e);
  const cabelo=mat(0x25202c);
-
  const corpo=new THREE.Mesh(new THREE.CapsuleGeometry(.39,.8,5,9),roupa);
  corpo.position.y=1.2;g.add(corpo);
  const cabeca=new THREE.Mesh(new THREE.SphereGeometry(.3,14,12),pele);
@@ -271,21 +242,18 @@ function criarInimigo(x,z){
  g.position.set(x,0,z);cena.add(g);
  return {obj:g,vida:100,vivo:true,vel:2.1,ataque:0};
 }
-
 function atualizarHUD(){
  document.getElementById("barraVida").style.width=vida+"%";
  document.getElementById("pontos").textContent="Pontos: "+pontos;
  document.getElementById("inimigosTexto").textContent=
  "Inimigos: "+inimigos.filter(e=>e.vivo).length;
 }
-
 function aviso(t){
  const a=document.getElementById("aviso");
  a.textContent=t;a.style.display="block";
  clearTimeout(aviso.timer);
  aviso.timer=setTimeout(()=>a.style.display="none",1300);
 }
-
 function mostrarFim(vitoria){
  acabou=true;
  document.getElementById("controles").style.display="none";
@@ -301,7 +269,6 @@ function mostrarFim(vitoria){
  <button id="jogar">JOGAR NOVAMENTE</button>`;
  document.getElementById("jogar").onclick=reiniciar;
 }
-
 function reiniciar(){
  if(jogador)cena.remove(jogador);
  inimigos.forEach(e=>cena.remove(e.obj));
@@ -310,13 +277,11 @@ function reiniciar(){
  pulando=false;cameraAngulo=0;
  jogador=criarPersonagem(heroiEscolhido);
  jogador.position.set(0,0,0);
-
  for(let i=0;i<8;i++){
   const a=Math.random()*Math.PI*2;
   const d=22+Math.random()*30;
   inimigos.push(criarInimigo(Math.cos(a)*d,Math.sin(a)*d));
  }
-
  document.getElementById("mensagem").style.display="none";
  document.getElementById("hud").style.display="block";
  document.getElementById("controles").style.display="block";
@@ -325,7 +290,6 @@ function reiniciar(){
  document.getElementById("ajuda").textContent="Derrote todos os adversários!";
  atualizarHUD();
 }
-
 document.querySelectorAll(".heroi").forEach(b=>{
  b.onclick=()=>{
   heroiEscolhido=b.dataset.heroi;
@@ -335,21 +299,17 @@ document.querySelectorAll(".heroi").forEach(b=>{
    heroiEscolhido+" selecionado! Prepare-se para a batalha.";
  };
 });
-
 document.getElementById("jogar").onclick=reiniciar;
-
 // Tiro à distância na direção da câmera
 function atacar(){
  if(!iniciou||acabou||performance.now()-tempoAtaque<450)return;
  tempoAtaque=performance.now();
-
  const origem=jogador.position.clone();
  origem.y+=1.5;
  const direcao=new THREE.Vector3(
   Math.sin(cameraAngulo),0,Math.cos(cameraAngulo)
  );
  let alvo=null,menor=28;
-
  inimigos.forEach(e=>{
   if(!e.vivo)return;
   const delta=e.obj.position.clone().sub(origem);
@@ -360,7 +320,6 @@ function atacar(){
    menor=distancia;alvo=e;
   }
  });
-
  const final=origem.clone().addScaledVector(direcao,alvo?menor:20);
  const linha=new THREE.BufferGeometry().setFromPoints([origem,final]);
  const raio=new THREE.Line(
@@ -368,7 +327,6 @@ function atacar(){
  );
  cena.add(raio);
  setTimeout(()=>{cena.remove(raio);linha.dispose();},110);
-
  if(alvo){
   alvo.vida-=34;pontos+=10;
   if(alvo.vida<=0){
@@ -379,12 +337,10 @@ function atacar(){
  atualizarHUD();
  if(inimigos.every(e=>!e.vivo))mostrarFim(true);
 }
-
 // Poder especial
 function especial(){
  if(!iniciou||acabou||performance.now()-tempoEspecial<4000)return;
  tempoEspecial=performance.now();
-
  const cor=herois[heroiEscolhido].poder;
  const esfera=new THREE.Mesh(
   new THREE.SphereGeometry(9,24,16),
@@ -410,7 +366,6 @@ function especial(){
  renderer.render(cena,camera);
 }
 animar();
-
 window.addEventListener("resize",()=>{
  camera.aspect=innerWidth/innerHeight;
  camera.updateProjectionMatrix();
