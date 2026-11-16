@@ -64,21 +64,6 @@
  <button class="navBtn" data-panel="COLEÇÃO">▧ COLEÇÃO</button>
  <button id="start">COMEÇAR ▶</button>
 </div>
-<div id="gamehud">
- <div class="hudbox">NEXUSBLATTER<br><span id="score">Pontos: 0</span><br><span id="enemyCount">Adversários: 5</span><br><span id="ammoText">ENERGIA: 12 / 60</span></div>
- <div class="hudbox">VIDA<div id="healthbar"><div id="healthfill"></div></div><span id="healthtext">100 / 100</span></div>
- <canvas id="minimap" width="150" height="150" aria-label="Minimapa da arena"></canvas>
-</div>
-<div id="gamecontrols">
- <div id="stick"><div id="knob"></div></div>
- <div id="fightbuttons"><button class="fight" id="jump">PULAR</button><button class="fight" id="energy">PODER</button><button class="fight" id="reload">RECARREGAR</button><button class="fight" id="attack">✦<br>ATIRAR</button></div>
-</div>
-<div id="cameraHint">Arraste o lado direito para girar a câmera</div>
-<div id="modal"><div id="dialog"><h2 id="modalTitle">NEXUSBLATTER</h2><div id="modalBody"></div><button class="action" id="modalClose">VOLTAR</button></div></div>
-<div id="toast"></div>
-<script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-
 const canvas=document.querySelector('#world');
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x82c9f4);scene.fog=new THREE.Fog(0x82c9f4,75,190);
 const camera=new THREE.PerspectiveCamera(58,innerWidth/innerHeight,.1,350);
