@@ -46,6 +46,7 @@
  <div class="currency"><span>🪙 <b>0</b></span><span>💎 <b>0</b></span><span>➕</span></div>
  <div class="topicons"><span>♟</span><span>✉</span><span>⚙</span><span>📶</span></div>
 </div>
+</style>
 <div id="brand"><h1>NEXUS<span>BLATTER</span></h1><p>ANIME BATTLE ROYALE · 3D</p></div>
 <div id="leftmenu">
  <button class="menuBtn active" data-panel="LOJA">🛒 LOJA</button>
