@@ -195,18 +195,6 @@ roster.forEach((c,i)=>{const b=document.createElement('button');b.className='cha
 function toast(t){const el=document.querySelector('#toast');el.textContent=t;el.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.style.display='none',1500)}
 function modal(title,body){document.querySelector('#modalTitle').textContent=title;document.querySelector('#modalBody').innerHTML=body;document.querySelector('#modal').style.display='flex'}
 document.querySelector('#modalClose').onclick=()=>document.querySelector('#modal').style.display='none';
-function panel(name){const content={
- 'LOJA':'<p>Loja de itens cosméticos e equipamentos.</p><p>🪙 Moedas: 0 · 💎 Cristais: 0</p><p>Os itens estarão disponíveis conforme forem adicionados ao jogo.</p>',
- 'PERSONAGENS':'<p>Escolha um dos seis heróis originais no painel à direita.</p>',
- 'ARMAS':'<p>⚔ Lâmina de luz<br>✦ Lançador de energia<br>🛡 Escudo de plasma</p><p>Equipamentos fictícios para o modo aventura.</p>',
- 'MOCHILA':'<p>🎒 Mochila vazia<br>Itens coletados aparecerão aqui.</p>',
- 'MISSÕES':'<p>★ Explore o mapa<br>★ Complete o treino<br>★ Encontre os adversários</p>',
- 'EVENTOS':'<p>Evento de estreia: Desafio Nexus</p><p>Explore o mapa e pratique suas habilidades.</p>',
- 'COFRE':'<p>Seu cofre está pronto para receber recompensas.</p>',
- 'PET':'<p>🐾 Companheiro Nexus — em breve.</p>',
- 'COLEÇÃO':'<p>Personagens, visuais e lembranças desbloqueadas.</p>'
-};modal(name,content[name]||'<p>Conteúdo em preparação.</p>')}
-document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-panel]').forEach(x=>x.classList.remove('active'));b.classList.add('active');panel(b.dataset.panel)});
 function spawnEnemies(){enemies.forEach(e=>scene.remove(e.obj));enemies.length=0;for(let i=0;i<5;i++){const c=roster[(i+2)%roster.length];const obj=makeFighter(c.hair,c.cloth);const a=i*Math.PI*2/5;obj.position.set(Math.sin(a)*32,0,Math.cos(a)*32);scene.add(obj);enemies.push({obj,hp:3,speed:2.2+i*.12,alive:true,next:0})}}
 function updateHUD(){document.querySelector('#healthfill').style.width=health+'%';document.querySelector('#healthtext').textContent=Math.ceil(health)+' / 100';document.querySelector('#score').textContent='Pontos: '+score;document.querySelector('#enemyCount').textContent='Adversários: '+enemies.filter(e=>e.alive).length;document.querySelector('#ammoText').textContent=(reloading?'RECARREGANDO...':'ENERGIA: '+ammo+' / '+reserveAmmo)}
 function endGame(win){ended=true;game=false;document.querySelector('#gamecontrols').style.display='none';document.querySelector('#cameraHint').style.display='none';document.querySelector('#gamehud').style.display='none';document.querySelector('#bottomnav').style.display='flex';document.querySelector('#leftmenu').style.display='flex';document.querySelector('#rightpanel').style.display='block';document.querySelector('#brand').style.display='block';modal(win?'VITÓRIA!':'FIM DE JOGO',`<p>${win?'Você venceu o desafio Nexus!':'Sua energia acabou. Tente novamente!'}</p><p>Pontuação: ${score}</p><button class="action" id="again">JOGAR NOVAMENTE</button>`);document.querySelector('#again').onclick=()=>{document.querySelector('#modal').style.display='none';startGame()}}
